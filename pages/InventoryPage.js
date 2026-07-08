@@ -3,9 +3,11 @@ import { expect } from "@playwright/test";
 export class InventoryPage {
   constructor(page) {
     this.page = page
-    this.pageTitle = page.locator('.title')
-    this.shoppingCartBadge = page.locator('.shopping_cart_badge')
-    this.shoppingCartLink = page.locator('.shopping_cart_link')
+    this.pageTitle = page.getByText('Products')
+    this.shoppingCartBadge = page.getByTestId('shopping-cart-badge')
+    this.shoppingCartLink = page.getByTestId('shopping-cart-link')
+    this.backpackButton = page.getByTestId('add-to-cart-sauce-labs-backpack')
+    this.bikeLightButton = page.getByTestId('add-to-cart-sauce-labs-bike-light')
   }
 
   async verifyInventoryPage(expectedUrl) {
@@ -14,11 +16,11 @@ export class InventoryPage {
   }
 
   async addBackpackToCart() {
-    await this.page.locator('#add-to-cart-sauce-labs-backpack').click()
+    await this.backpackButton.click()
   }
 
   async addBikeLightToCart() {
-    await this.page.locator('#add-to-cart-sauce-labs-bike-light').click()
+    await this.bikeLightButton.click()
   }
 
   async verifyCartBadgeCount(count) {

@@ -1,10 +1,12 @@
+const baseUrl = 'https://www.saucedemo.com'
+
 export const testData = {
-  baseUrl: 'https://www.saucedemo.com/',
-  inventoryUrl: 'https://www.saucedemo.com/inventory.html',
-  cartUrl: 'https://www.saucedemo.com/cart.html',
-  checkoutStepOneUrl: 'https://www.saucedemo.com/checkout-step-one.html',
-  checkoutStepTwoUrl: 'https://www.saucedemo.com/checkout-step-two.html',
-  checkoutCompleteUrl: 'https://www.saucedemo.com/checkout-complete.html',
+  baseUrl,
+  inventoryUrl: `${baseUrl}/inventory.html`,
+  cartUrl: `${baseUrl}/cart.html`,
+  checkoutStepOneUrl: `${baseUrl}/checkout-step-one.html`,
+  checkoutStepTwoUrl: `${baseUrl}/checkout-step-two.html`,
+  checkoutCompleteUrl: `${baseUrl}/checkout-complete.html`,
 
   validUsers: {
     standard: 'standard_user',

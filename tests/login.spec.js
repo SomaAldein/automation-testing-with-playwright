@@ -4,15 +4,7 @@ import { testData } from '../data/testData'
 
 test.describe('Login Tests', () => {
   test.describe('Positive Tests', () => {
-    const validUsers = [
-      testData.validUsers.standard,
-      testData.validUsers.problem,
-      testData.validUsers.performance,
-      testData.validUsers.error_user,
-      testData.validUsers.visual,
-    ]
-
-    validUsers.forEach((user) => {
+    Object.values(testData.validUsers).forEach((user) => {
       test(`Login with valid user: ${user}`, async ({ page }) => {
         const loginPage = new LoginPage(page)
         await loginPage.goto(testData.baseUrl)
@@ -21,6 +13,7 @@ test.describe('Login Tests', () => {
       })
     })
   })
+   
 
   test.describe('Negative Tests', () => {
     test('Login with locked out user', async ({ page }) => {
